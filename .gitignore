@@ -3,6 +3,8 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+BAYMAX/DYME/
+
 # C extensions
 *.so
 
