@@ -4,6 +4,7 @@ __pycache__/
 *$py.class
 
 BAYMAX/DYME/
+BAYMAX/dataset/empatheticdialogues/
 
 # C extensions
 *.so
