@@ -1,4 +1,8 @@
+-f https://download.pytorch.org/whl/torch_stable.html
+torch==1.11.0+cpu
+torchvision==0.12.0+cpu
 Flask==2.2.2
 Flask_Cors==3.0.10
 transformers==4.25.1
 gunicorn
+python-dotenv==0.21.0

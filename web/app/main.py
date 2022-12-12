@@ -2,15 +2,12 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS, cross_origin
 from transformers import AutoTokenizer, AutoModelWithLMHead
 from dotenv import dotenv_values
+import os
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
 
-access_token = dotenv_values("../.env")['access_token']
-
-tokenizer = AutoTokenizer.from_pretrained('gpt2-medium')
-model = AutoModelWithLMHead.from_pretrained(
-    dotenv_values('../.env')['model_name'], use_auth_token=access_token)
+access_token = os.environ['access_token']
 
 
 @app.route("/")
@@ -33,6 +30,9 @@ def after_request(response):
 @app.route("/runModel", methods=['POST'])
 @cross_origin()
 def runModel():
+    tokenizer = AutoTokenizer.from_pretrained('gpt2-medium')
+    model = AutoModelWithLMHead.from_pretrained(
+        os.environ['model_name'], use_auth_token=access_token)
     # get a request body from the client
     req = request.get_json()
 
